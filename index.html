@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Convertidor de Texto</title>
+  <style>
+    #text-area {
+      width: 80%;
+      height: 200px;
+      margin: 20px auto;
+      padding: 10px;
+      border: 1px solid #ccc;
+      resize: none;
+    }
+  </style>
+</head>
+<body>
+  <textarea id="text-area" placeholder="Escribe tu texto aquí..."></textarea><br>
+  <button onclick="convertText()">Convertir Texto</button>
+  <div id="converted-text" style="margin-top: 20px;"></div>
+
+  <script>
+    function convertText() {
+      var textArea = document.getElementById('text-area');
+      var text = textArea.value;
+
+      // Reemplazar tabuladores con <li>
+      text = text.replace(/\t/g, ' <li> ');
+
+      // Reemplazar saltos de línea con <br>
+      text = text.replace(/\n/g, ' <br> ');
+
+      // Mostrar texto convertido
+      document.getElementById('converted-text').innerText = text;
+    }
+  </script>
+</body>
+</html>
